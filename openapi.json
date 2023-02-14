@@ -1,0 +1,352 @@
+{
+  "openapi": "3.0.0",
+
+  "info": {
+    "title": "Rentx Documentation",
+    "description": "App for rent of cars",
+    "contact": {
+      "name": "Api support",
+      "email": "gumurdiga@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+
+  "servers": [
+    {
+      "url": "http://localhost:3333/",
+      "description": "Internal server"
+    }
+  ],
+
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Categories"],
+        "description": "Create a category",
+        "summary": "Find all categories",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "type": "object",
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": ["'A'|'B'|'C'"]
+                  },
+                  "description": {
+                    "type": "string",
+                    "format": "string"
+                  }
+                }
+              },
+              "examples": {
+                "newCategory": {
+                  "summary": "Created",
+                  "value": {
+                    "name": "SUV",
+                    "description": "description of the category SUV"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "summary": "return of success",
+                    "value": {
+                      "id": "4b5d0fb0-732e-460c-b3f0-756240c86886",
+                      "name": "SUV",
+                      "description": "description of the category SUV",
+                      "created_at": "2023-02-01T01:15:48.896Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Message error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "summary": "Return with error",
+                    "value": {
+                      "status": 400,
+                      "message": "Return with a error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Categories"],
+        "description": "Get all categories",
+        "summary": "Get categories per id",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return categories",
+            "summary": "return categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "summary": "example of the return",
+                    "value": [
+                      {
+                        "value": "SUV",
+                        "description": "description of the category SUV"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "occurred a error",
+            "summary": "return categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "status": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "examples": {
+                  "example": {
+                    "summary": "example error return",
+                    "value": {
+                      "status": 400,
+                      "message": "Return with a error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Categories"],
+        "description": "import file of the contains categories",
+        "summary": "import mode",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "import successfully",
+            "summary": "successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "summary": "import",
+                  "value": {
+                    "message": "import created with successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro with on import ",
+            "summary": "error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "summary": "error",
+                  "value": {
+                    "message": "Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create Specification",
+        "description": "Create a new Specification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "summary": "Create a new specification",
+                  "value": {
+                    "name": "string",
+                    "description": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created specifications successfully",
+            "summary": "successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "summary": "Create Specification",
+                  "value": {
+                    "message": "specification created with successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro with create a new specification ",
+            "summary": "error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "example": {
+                  "summary": "error",
+                  "value": {
+                    "message": "Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
