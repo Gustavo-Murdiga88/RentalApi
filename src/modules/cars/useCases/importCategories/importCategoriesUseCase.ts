@@ -27,7 +27,6 @@ export class ImportCategoriesUseCase {
   private async loadCategories() {
     this.categories.forEach(async ({ description, name }) => {
       const category = await this.categoriesRepository.findByName(name);
-      console.log(category);
 
       if (!category) {
         await this.categoriesRepository.create({

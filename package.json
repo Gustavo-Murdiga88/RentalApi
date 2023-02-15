@@ -1,6 +1,7 @@
 {
    "name": "rentx",
    "version": "1.0.0",
+   "module": "es2022",
    "type": "commonjs",
    "description": "",
    "main": "index.js",

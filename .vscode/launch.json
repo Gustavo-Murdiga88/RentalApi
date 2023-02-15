@@ -8,8 +8,8 @@
 
 
     {
-      "name": "Attach",
-      "request": "attach",
+      "name": "Launch",
+      "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
       ],

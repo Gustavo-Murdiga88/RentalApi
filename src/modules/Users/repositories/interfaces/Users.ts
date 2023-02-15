@@ -10,6 +10,7 @@ export type UserDTO = {
 
 export interface IUsersRepository {
   create(data: UserDTO): Promise<Users>;
+  update(data: Users): Promise<Users>;
   list(): Promise<Users[]>;
   findByName(name: string): Promise<boolean>;
   findByEmail(email: string): Promise<Users | null>;
