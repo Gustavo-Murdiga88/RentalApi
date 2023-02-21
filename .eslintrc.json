@@ -26,7 +26,7 @@
           "semi": true
         }],
         "camelcase": "off",
-        "import/no-unresolved": ["error", {"ignore": ["/[a-z]$/"]}],
+        "import/no-unresolved": ["error", {"ignore": ["[a-z]$"]}],
         "@typescript-eslint/naming-convention": [
             "error",
             {

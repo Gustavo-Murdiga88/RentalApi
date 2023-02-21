@@ -1,8 +1,10 @@
+import "reflect-metadata";
+
+import { Category } from "@cars/infra/entities/Category";
+import { ICategoriesRepository } from "@cars/repositories/interfaces/ICarRepository";
 import { inject, injectable } from "tsyringe";
 
-import { AppErrors } from "../../../../errors/appErros";
-import { Category } from "../../entities/Category";
-import { ICategoriesRepository } from "../../repositories/interfaces/ICarRepository";
+import { AppErrors } from "@shared/errors/appErros";
 
 interface IRequest {
   name: string;

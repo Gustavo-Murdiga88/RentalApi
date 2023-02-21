@@ -1,10 +1,11 @@
+import { IUsersRepository } from "@Users/repositories/interfaces/Users";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
-import { AppErrors } from "../../../../errors/appErros";
-import { Users } from "../../entities/Users";
-import { IUsersRepository } from "../../repositories/interfaces/Users";
+import { AppErrors } from "@shared/errors/appErros";
+
+import { Users } from "../../infra/typeorm/entities/Users";
 
 type ResponseAuth = {
   user: Users;
@@ -18,7 +19,7 @@ type Request = {
 
 @injectable()
 export class AuthenticationUseCase {
-  repository: IUsersRepository;
+  private repository: IUsersRepository;
 
   constructor(
     @inject("UserRepository")

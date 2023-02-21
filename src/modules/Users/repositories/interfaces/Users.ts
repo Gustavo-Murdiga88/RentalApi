@@ -1,4 +1,4 @@
-import { Users } from "../../entities/Users";
+import { Users } from "../../infra/typeorm/entities/Users";
 
 export type UserDTO = {
   name: string;

@@ -1,8 +1,8 @@
+import { UserRepository } from "@Users/infra/typeorm/repositories/UsersRepository";
 import { Response, Request, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 
-import { AppErrors } from "../errors/appErros";
-import { UserRepository } from "../modules/Users/repositories/implementations/UsersRepository";
+import { AppErrors } from "@shared/errors/appErros";
 
 type DecodedProps = {
   sub: string;

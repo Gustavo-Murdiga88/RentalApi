@@ -1,6 +1,7 @@
 import { NextFunction, Router, Request, Response } from "express";
 
-import { AppErrors } from "../errors/appErros";
+import { AppErrors } from "@shared/errors/appErros";
+
 import { AuthRoutes } from "./Auth.routes";
 import { categoriesRoutes } from "./categories.routes";
 import { specificationRoutes } from "./specifications.routes";

@@ -3,10 +3,10 @@ import "express-async-errors";
 import express from "express";
 import swaggerUI from "swagger-ui-express";
 
-import "./data-source";
-import "./shared/container";
+import "@shared/typeorm/data-source";
+import "@shared/container";
 
-import openAPI from "../openapi.json";
+import openAPI from "../../../../openapi.json";
 import { routes } from "./routes";
 
 const app = express();

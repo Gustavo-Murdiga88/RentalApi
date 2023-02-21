@@ -1,9 +1,13 @@
+import {
+  IUsersRepository,
+  UserDTO,
+} from "@Users/repositories/interfaces/Users";
 import bcrypt from "bcrypt";
 import { Repository } from "typeorm";
 
-import { AppDataSource } from "../../../../data-source";
-import { Users } from "../../entities/Users";
-import { IUsersRepository, UserDTO } from "../interfaces/Users";
+import { AppDataSource } from "@shared/typeorm/data-source";
+
+import { Users } from "../entities/Users";
 
 export class UserRepository implements IUsersRepository {
   private repository: Repository<Users>;

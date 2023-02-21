@@ -1,9 +1,9 @@
+import { AppErrors } from "@shared/errors/appErros";
 import { inject, injectable } from "tsyringe";
 
-import { AppErrors } from "../../../../errors/appErros";
 import {
-  ISpecificationsRepository,
   ISpecificationsDTO,
+  ISpecificationsRepository,
 } from "../../repositories/interfaces/ISpacificationsRepository";
 
 @injectable()

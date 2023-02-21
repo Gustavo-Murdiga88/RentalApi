@@ -1,8 +1,12 @@
+import {
+  IUsersRepository,
+  UserDTO,
+} from "@Users/repositories/interfaces/Users";
 import { inject, injectable } from "tsyringe";
 
-import { AppErrors } from "../../../../errors/appErros";
-import { Users } from "../../entities/Users";
-import { IUsersRepository, UserDTO } from "../../repositories/interfaces/Users";
+import { AppErrors } from "@shared/errors/appErros";
+
+import { Users } from "../../infra/typeorm/entities/Users";
 
 @injectable()
 export class CreateUserUseCase {

@@ -1,8 +1,7 @@
+import { CategoriesRepository } from "@cars/infra/typeorm/repositories/category";
 import { parse as CSVparse } from "csv-parse";
 import { createReadStream, unlink } from "fs";
 import { inject, injectable } from "tsyringe";
-
-import { CategoriesRepository } from "../../repositories/implementations/category";
 
 const parser = CSVparse({});
 
