@@ -1,8 +1,9 @@
-import { Users } from "@Users/infra/typeorm/entities/Users";
+import { Car } from "@cars/infra/entities/Car";
 import { DataSource } from "typeorm";
 
 import { Category } from "../../modules/cars/infra/entities/Category";
 import { Specifications } from "../../modules/cars/infra/entities/Specification";
+import { Users } from "../../modules/Users/infra/typeorm/entities/Users";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -13,8 +14,8 @@ export const AppDataSource = new DataSource({
   database: "ignite",
   synchronize: true,
   logging: false,
-  entities: [Category, Specifications, Users],
-  migrations: ["./src/shared/migration/*.ts"],
+  entities: [Category, Specifications, Users, Car],
+  migrations: ["./src/shared/typeorm/migration/*.ts"],
   subscribers: [],
   migrationsTableName: "migrations",
 });

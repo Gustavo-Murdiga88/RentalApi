@@ -3,6 +3,7 @@ import { NextFunction, Router, Request, Response } from "express";
 import { AppErrors } from "@shared/errors/appErros";
 
 import { AuthRoutes } from "./Auth.routes";
+import { carsRoutes } from "./cars.routes";
 import { categoriesRoutes } from "./categories.routes";
 import { specificationRoutes } from "./specifications.routes";
 import { usersRoutes } from "./users.routes";
@@ -13,6 +14,7 @@ routes.use("/categories", categoriesRoutes);
 routes.use("/specifications", specificationRoutes);
 routes.use("/users", usersRoutes);
 routes.use("/auth", AuthRoutes);
+routes.use("/cars", carsRoutes);
 
 routes.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof AppErrors) {

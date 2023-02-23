@@ -6,7 +6,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd -r tsconfig-paths/register --inspect --watch -- src/shared/http/server.ts",
+    "dev": "tsnd -r tsconfig-paths/register --inspect --watch -- src/shared/infra/http/server.ts",
     "test": "jest",
     "typeorm": "typeorm-ts-node-commonjs",
     "start": "ts-node src/index.ts"
