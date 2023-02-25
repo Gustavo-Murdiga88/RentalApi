@@ -29,15 +29,16 @@ export async function ensureAuthentication(
 
     const authUser = new UserRepository();
 
-    const user = authUser.findById(user_id);
+    const user = await authUser.findById(user_id);
 
     if (!user) {
       throw new AppErrors("User does not exists!", 401);
     }
 
+    req.user = user;
+
     next();
   } catch {
-    console.log("oi");
     throw new AppErrors("Invalid token!", 401);
   }
 }

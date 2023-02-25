@@ -5,19 +5,25 @@ import { upload } from "config/upload";
 import { Router } from "express";
 import multer from "multer";
 
+import { ensureAdmin } from "../middlewares/ensureAdmin";
+import { ensureAuthentication } from "../middlewares/ensureAuthentication";
+
 // import createCategoryController from "../modules/cars/useCases/createCategory";
 
 const categoriesRoutes = Router();
 
 const middlewareUpload = multer(upload());
 
-const createCategoryController = new CreateCategoryController();
-categoriesRoutes.post("/", createCategoryController.handle);
-
 const listCategoriesController = new ListsCategoriesController();
+const importCategoriesController = new ImportCategoriesController();
+const createCategoryController = new CreateCategoryController();
+
 categoriesRoutes.get("/", listCategoriesController.handle);
 
-const importCategoriesController = new ImportCategoriesController();
+categoriesRoutes.use(ensureAuthentication, ensureAdmin);
+
+categoriesRoutes.post("/", createCategoryController.handle);
+
 categoriesRoutes.post(
   "/import",
   middlewareUpload.single("file"),

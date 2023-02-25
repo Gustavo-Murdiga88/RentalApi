@@ -1,6 +1,6 @@
-import { Car } from "@cars/infra/entities/Car";
 import { DataSource } from "typeorm";
 
+import { Car } from "../../modules/cars/infra/entities/Car";
 import { Category } from "../../modules/cars/infra/entities/Category";
 import { Specifications } from "../../modules/cars/infra/entities/Specification";
 import { Users } from "../../modules/Users/infra/typeorm/entities/Users";
