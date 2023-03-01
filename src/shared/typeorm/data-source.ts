@@ -1,8 +1,8 @@
 import { DataSource } from "typeorm";
 
-import { Car } from "../../modules/cars/infra/entities/Car";
-import { Category } from "../../modules/cars/infra/entities/Category";
-import { Specifications } from "../../modules/cars/infra/entities/Specification";
+import { Car } from "../../modules/cars/infra/typeorm/entities/Car";
+import { Category } from "../../modules/cars/infra/typeorm/entities/Category";
+import { Specifications } from "../../modules/cars/infra/typeorm/entities/Specification";
 import { Users } from "../../modules/Users/infra/typeorm/entities/Users";
 
 export const AppDataSource = new DataSource({

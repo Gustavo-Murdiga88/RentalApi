@@ -1,6 +1,9 @@
 import { CarDTO } from "@cars/dto";
-import { Car } from "@cars/infra/entities/Car";
-import { ICreateCarRepository } from "@cars/repositories/interfaces/ICreateCarRepository";
+import { Car } from "@cars/infra/typeorm/entities/Car";
+import {
+  ICreateCarRepository,
+  IRequestListCars,
+} from "@cars/repositories/interfaces/ICreateCarRepository";
 import { Repository } from "typeorm";
 
 import { AppDataSource } from "@shared/typeorm/data-source";
@@ -11,6 +14,7 @@ export class CreateCarRepository implements ICreateCarRepository {
   constructor() {
     this.cars = AppDataSource.getRepository(Car);
   }
+
   async create(data: CarDTO): Promise<Car> {
     const car = new Car();
 
@@ -27,6 +31,45 @@ export class CreateCarRepository implements ICreateCarRepository {
     license_plate: string
   ): Promise<Car | undefined | null> {
     const car = await this.cars.findOneBy({ license_plate });
+
+    return car;
+  }
+
+  async listByAvailable({
+    category_id,
+    brand,
+    name,
+  }: IRequestListCars): Promise<Car[]> {
+    const all = this.cars.createQueryBuilder("cars");
+
+    all.leftJoinAndSelect("cars.category_id", "category");
+    all.leftJoinAndSelect("cars.specifications", "specifications");
+
+    if (category_id) {
+      all.where("category_id = :category_id", { category_id });
+    }
+
+    if (brand) {
+      all.andWhere("brand = :brand", { brand });
+    }
+
+    if (name) {
+      all.andWhere("name = :name", { name });
+    }
+
+    const cars = await all.getMany();
+
+    return cars;
+  }
+
+  async findById(id: string): Promise<Car> {
+    const car = await this.cars.findOneBy({ id });
+
+    return car || ({} as Car);
+  }
+
+  async update(data: Car): Promise<Car> {
+    const car = await this.cars.save(data);
 
     return car;
   }

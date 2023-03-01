@@ -1,7 +1,7 @@
 import "reflect-metadata";
 
-import { Category } from "@cars/infra/entities/Category";
-import { ICategoriesRepository } from "@cars/repositories/interfaces/ICarRepository";
+import { Category } from "@cars/infra/typeorm/entities/Category";
+import { ICategoriesRepository } from "@cars/repositories/interfaces/ICreateCategoriesRepository";
 import { inject, injectable } from "tsyringe";
 
 import { AppErrors } from "@shared/errors/appErros";

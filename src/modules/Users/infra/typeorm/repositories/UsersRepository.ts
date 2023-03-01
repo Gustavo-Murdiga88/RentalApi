@@ -15,6 +15,7 @@ export class UserRepository implements IUsersRepository {
   constructor() {
     this.repository = AppDataSource.getRepository(Users);
   }
+
   async update(data: Users): Promise<Users> {
     const user = await this.repository.save(data);
     return user;

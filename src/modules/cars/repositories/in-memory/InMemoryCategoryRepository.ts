@@ -1,9 +1,9 @@
-import { Category } from "@cars/infra/entities/Category";
-import { randomUUID } from "crypto";
+import { Category } from "@cars/infra/typeorm/entities/Category";
 import {
   ICategoriesRepository,
   ICategoryDTO,
-} from "modules/cars/repositories/interfaces/ICarRepository";
+} from "@cars/repositories/interfaces/ICreateCategoriesRepository";
+import { randomUUID } from "crypto";
 
 export class CategoriesRepositoryInMemory implements ICategoriesRepository {
   private categories: Category[];

@@ -1,5 +1,5 @@
 import { CarDTO } from "@cars/dto";
-import { Car } from "@cars/infra/entities/Car";
+import { Car } from "@cars/infra/typeorm/entities/Car";
 import { ICreateCarRepository } from "@cars/repositories/interfaces/ICreateCarRepository";
 import { inject, injectable } from "tsyringe";
 
