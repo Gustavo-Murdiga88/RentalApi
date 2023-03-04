@@ -2,6 +2,7 @@ import { DataSource } from "typeorm";
 
 import { Car } from "../../modules/cars/infra/typeorm/entities/Car";
 import { Category } from "../../modules/cars/infra/typeorm/entities/Category";
+import { CarImages } from "../../modules/cars/infra/typeorm/entities/images";
 import { Specifications } from "../../modules/cars/infra/typeorm/entities/Specification";
 import { Users } from "../../modules/Users/infra/typeorm/entities/Users";
 
@@ -14,7 +15,7 @@ export const AppDataSource = new DataSource({
   database: "ignite",
   synchronize: true,
   logging: false,
-  entities: [Category, Specifications, Users, Car],
+  entities: [Category, Specifications, Users, Car, CarImages],
   migrations: ["./src/shared/typeorm/migration/*.ts"],
   subscribers: [],
   migrationsTableName: "migrations",

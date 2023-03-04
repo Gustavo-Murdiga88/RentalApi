@@ -35,7 +35,7 @@
 
 **RNF**
 
-  - Utilizar 0 multer para upload dos arquivos
+  - Utilizar multer para upload dos arquivos
 
 **RN**
 
