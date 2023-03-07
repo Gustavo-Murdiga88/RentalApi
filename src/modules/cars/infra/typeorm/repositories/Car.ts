@@ -73,4 +73,13 @@ export class CreateCarRepository implements ICreateCarRepository {
 
     return car;
   }
+
+  async updateAvailableById(id: string, status: boolean): Promise<void> {
+    await this.cars
+      .createQueryBuilder()
+      .update()
+      .set({ available: status })
+      .where("id = :id", { id })
+      .execute();
+  }
 }

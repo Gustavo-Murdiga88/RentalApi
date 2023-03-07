@@ -8,6 +8,8 @@ import { ICategoriesRepository } from "@cars/repositories/interfaces/ICreateCate
 import { ISpecificationsRepository } from "@cars/repositories/interfaces/ISpacificationsRepository";
 import { UserRepository } from "@Users/infra/typeorm/repositories/UsersRepository";
 import { IUsersRepository } from "@Users/repositories/interfaces/Users";
+import { RentalsRepository } from "modules/rentals/infra/typeorm/repositories/rentalsRepository";
+import { IRentalsRepository } from "modules/rentals/repositories/interfaces/IRentalsRepository";
 import { container } from "tsyringe";
 
 container.registerSingleton<ICategoriesRepository>(
@@ -30,4 +32,9 @@ container.registerSingleton<ICreateCarRepository>(
 container.registerSingleton<ICarImagesRepository>(
   "CarImagesRepository",
   CarImagesRepository
+);
+
+container.registerSingleton<IRentalsRepository>(
+  "RentalsRepository",
+  RentalsRepository
 );

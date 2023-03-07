@@ -9,7 +9,7 @@
 
     {
       "name": "Launch",
-      "request": "launch",
+      "request": "attach",
       "skipFiles": [
         "<node_internals>/**"
       ],

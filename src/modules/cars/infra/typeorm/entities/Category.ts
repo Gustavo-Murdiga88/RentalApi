@@ -3,10 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToMany,
 } from "typeorm";
-
-import { Car } from "./Car";
 
 @Entity("categories")
 export class Category {

@@ -13,4 +13,5 @@ export interface ICreateCarRepository {
   listByAvailable({ category_id, brand }: IRequestListCars): Promise<Car[]>;
   findById(id: string): Promise<Car>;
   update(data: Car): Promise<Car>;
+  updateAvailableById(id: string, status: boolean): Promise<void>;
 }
