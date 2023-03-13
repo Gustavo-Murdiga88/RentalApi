@@ -5,7 +5,8 @@ import { UpdateAvatarUseCase } from "./updateAvatarUseCase";
 
 export class UpdateAvatarController {
   async handle(req: Request, res: Response): Promise<Response> {
-    const { id } = req.body;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const { id } = req.user!;
     const { file } = req;
 
     const file_name = file?.filename;

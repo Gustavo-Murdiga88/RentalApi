@@ -16,23 +16,6 @@ export class UserRepository implements IUsersRepository {
     this.repository = AppDataSource.getRepository(Users);
   }
 
-  async update(data: Users): Promise<Users> {
-    const user = await this.repository.save(data);
-    return user;
-  }
-
-  async findById(id: string): Promise<Users | null> {
-    const user = await this.repository.findOneBy({ id });
-
-    return user;
-  }
-
-  async findByEmail(email: string): Promise<Users | null> {
-    const user = await this.repository.findOneBy({ email });
-
-    return user;
-  }
-
   async create({
     avatar,
     driver_license,
@@ -67,5 +50,22 @@ export class UserRepository implements IUsersRepository {
     });
 
     return !!user;
+  }
+
+  async update(data: Users): Promise<Users> {
+    const user = await this.repository.save(data);
+    return user;
+  }
+
+  async findById(id: string): Promise<Users | null> {
+    const user = await this.repository.findOneBy({ id });
+
+    return user;
+  }
+
+  async findByEmail(email: string): Promise<Users | null> {
+    const user = await this.repository.findOneBy({ email });
+
+    return user;
   }
 }

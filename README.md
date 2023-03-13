@@ -6,10 +6,11 @@
 **RN**
   - Não deve ser possível cadastrar um carro com uma placa já existente.
   <!-- - Não deve ser possível alterar a placa de um carro já cadastrado. -->
-  - 0 carro deve ser cadastrado, por padrão, com disponibilidade.
+  - O carro deve ser cadastrado, por padrão, com disponibilidade.
   - O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 # Listagem de carros
+
 **RF**
 
   - Deve ser possível listar todos os carros disponíveis
@@ -24,7 +25,7 @@
 **RN**
 
   - Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-  - Não deve ser possível cadastrar uma especificação já existente para 0 mesmo carro.
+  - Não deve ser possível cadastrar uma especificação já existente para O mesmo carro.
   - O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 # Cadastro de imagens do carro
@@ -39,8 +40,8 @@
 
 **RN**
 
-  - usuário deve poder cadastrar mais de uma imagem para 0 mesmo carro
-  - 0 usuário responsável pelo cadastro deve ser um usuário administrador.
+  - usuário deve poder cadastrar mais de uma imagem para O mesmo carro
+  - O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 # Alugel de carro
 
@@ -72,4 +73,17 @@ Caso o horário de devolução seja superior ao horário previsto de entrega, de
 Deve ser possível realizar a busca de todos os alugueis para o usuário
 
 **RN**
-0 usuário deve estar logado na aplicação
+O usuário deve estar logado na aplicação
+
+
+# Recuperar senha
+
+**RF**
+
+O usuário deve receber um e-mail com o passo a passo para a recuperação da senha
+O usuário deve conseguir inserir uma nova senha
+O usuário deve conseguir inserir uma nova senha
+
+ **RN**
+- O usuario precisa informar uma nova senha
+- O link enviado para a er 1 deve expirar em 3 horas

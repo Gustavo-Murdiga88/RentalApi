@@ -2,6 +2,7 @@ import "reflect-metadata";
 import "express-async-errors";
 import express from "express";
 import swaggerUI from "swagger-ui-express";
+import "dotenv/config";
 
 import "@shared/typeorm/data-source";
 import "@shared/container";
