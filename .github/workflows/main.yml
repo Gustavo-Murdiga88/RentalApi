@@ -10,13 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: install depencies
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-        check-latest: true
-    - run: npm ci
-    
-    - name: build
-    - run: npm run dev
+      - name: install depencies
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          check-latest: true
+      - run: npm ci
+
+      - name: build
+      - run: npm run dev
+
+      - uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{secrets.SSH_HOST }}
+          port: ${{ secrets.PORT }}
+          source: "., !node_modules"
+          target: "test"
+
