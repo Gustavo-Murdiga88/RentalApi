@@ -6,19 +6,19 @@ on:
     - main
 
 jobs:
-  create_deploy: 
-    name: deploy
+  buld: 
     runs-on: ubuntu-latest
     
     steps:
-    - name: install depencies
-    - uses: actions/checkout@v3
+    - name: setup node
     - uses: actions/setup-node@v3
       with:
         node-version: '14'
+
+    - name: install depencies
     - run: npm install
 
-    - name: build
+    - name: dev
     - run: npm run dev
 
     - uses: appleboy/scp-action@master
