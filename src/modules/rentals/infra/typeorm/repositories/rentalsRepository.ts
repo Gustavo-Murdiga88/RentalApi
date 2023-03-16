@@ -5,7 +5,7 @@ import {
 } from "modules/rentals/repositories/interfaces/IRentalsRepository";
 import { Repository } from "typeorm";
 
-import { AppDataSource } from "@shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/config";
 
 import { Rental } from "../entities/rental";
 

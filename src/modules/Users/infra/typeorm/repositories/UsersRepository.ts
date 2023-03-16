@@ -5,7 +5,7 @@ import {
 import bcrypt from "bcrypt";
 import { Repository } from "typeorm";
 
-import { AppDataSource } from "@shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/config";
 
 import { Users } from "../entities/Users";
 

@@ -4,7 +4,7 @@ import express from "express";
 import swaggerUI from "swagger-ui-express";
 import "dotenv/config";
 
-import "@shared/typeorm/data-source";
+import "@shared/typeorm/config";
 import "@shared/container";
 
 import openAPI from "../../../../openapi.json";

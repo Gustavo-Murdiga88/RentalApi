@@ -6,7 +6,7 @@ import {
 } from "@cars/repositories/interfaces/ICreateCarRepository";
 import { Repository } from "typeorm";
 
-import { AppDataSource } from "@shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/config";
 
 export class CreateCarRepository implements ICreateCarRepository {
   private cars: Repository<Car>;

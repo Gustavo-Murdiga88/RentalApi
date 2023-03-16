@@ -9,7 +9,7 @@ import { Users } from "../../modules/Users/infra/typeorm/entities/Users";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: process.env.TS_NODE_DEV ? "database_ignite" : "localhost",
+  host: "localhost",
   port: 5432,
   username: "docker",
   password: "docker",

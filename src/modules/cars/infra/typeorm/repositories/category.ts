@@ -4,7 +4,7 @@ import {
 } from "@cars/repositories/interfaces/ICreateCategoriesRepository";
 import { Repository } from "typeorm";
 
-import { AppDataSource } from "@shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/config";
 
 import { Category } from "../entities/Category";
 

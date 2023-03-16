@@ -73,4 +73,10 @@ export class CreateCarRepositoryInMemory implements ICreateCarRepository {
 
     return car || ({} as Car);
   }
+
+  async updateAvailableById(id: string, status: boolean): Promise<void> {
+    const indexCar = this.cars.findIndex((item) => item.id === id);
+
+    this.cars[indexCar].available = status;
+  }
 }

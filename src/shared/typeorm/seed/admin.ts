@@ -1,7 +1,7 @@
 import { Users } from "@Users/infra/typeorm/entities/Users";
 import { hash } from "bcrypt";
 
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../config";
 
 async function createAdmin() {
   const password = await hash("admin", 8);
